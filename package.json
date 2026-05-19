@@ -17,7 +17,9 @@
         "dist"
     ],
     "private": false,
-    "sideEffects": false,
+    "sideEffects": [
+        "**/*.css"
+    ],
     "type": "module",
     "main": "./dist/index/server.js",
     "module": "./dist/index/server.js",
@@ -107,7 +109,8 @@
                 "default": "./dist/math/index.js"
             }
         },
-        "./styles.css": "./dist/index/index.css"
+        "./styles.css": "./dist/index/index.css",
+        "./math.css": "./dist/math/index.css"
     },
     "typesVersions": {
         "*": {
@@ -164,6 +167,7 @@
         "ai": "^6.0.177",
         "hast-util-to-jsx-runtime": "^2.3.6",
         "html-url-attributes": "^3.0.1",
+        "katex": "^0.16.22",
         "marked": "^18.0.3",
         "mermaid": "^11.14.0",
         "rehype": "^13.0.2",

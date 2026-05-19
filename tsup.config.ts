@@ -77,10 +77,12 @@ export default defineConfig((config) => {
                 ? {
                       ".": exportObj,
                       "./styles.css": "./dist/index/index.css",
+                      "./math.css": "./dist/math/index.css",
                   }
                 : {
                       ...exportObj,
                       "./styles.css": "./dist/index/index.css",
+                      "./math.css": "./dist/math/index.css",
                   }) as any;
         }
 
