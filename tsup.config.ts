@@ -76,11 +76,11 @@ export default defineConfig((config) => {
             package_fields.exports = (needsSubpathWrapper
                 ? {
                       ".": exportObj,
-                      "./styles.css": "./dist/index.css",
+                      "./styles.css": "./dist/index/index.css",
                   }
                 : {
                       ...exportObj,
-                      "./styles.css": "./dist/index.css",
+                      "./styles.css": "./dist/index/index.css",
                   }) as any;
         }
 

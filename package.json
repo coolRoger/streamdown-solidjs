@@ -107,7 +107,7 @@
                 "default": "./dist/math/index.js"
             }
         },
-        "./styles.css": "./dist/index.css"
+        "./styles.css": "./dist/index/index.css"
     },
     "typesVersions": {
         "*": {
