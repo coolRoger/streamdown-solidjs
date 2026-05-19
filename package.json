@@ -19,66 +19,103 @@
     "private": false,
     "sideEffects": false,
     "type": "module",
-    "main": "./dist/server.js",
-    "module": "./dist/server.js",
-    "types": "./dist/index.d.ts",
+    "main": "./dist/index/server.js",
+    "module": "./dist/index/server.js",
+    "types": "./dist/index/index.d.ts",
     "browser": {
-        "./dist/server.js": "./dist/index.js"
+        "./dist/index/server.js": "./dist/index/index.js",
+        "./dist/math/server.js": "./dist/math/index.js"
     },
     "exports": {
         ".": {
             "worker": {
                 "import": {
-                    "types": "./dist/index.d.ts",
-                    "default": "./dist/server.js"
+                    "types": "./dist/index/index.d.ts",
+                    "default": "./dist/index/server.js"
                 }
             },
             "browser": {
                 "solid": {
-                    "development": "./dist/dev.jsx",
-                    "import": "./dist/index.jsx"
+                    "development": "./dist/index/dev.jsx",
+                    "import": "./dist/index/index.jsx"
                 },
                 "development": {
                     "import": {
-                        "types": "./dist/index.d.ts",
-                        "default": "./dist/dev.js"
+                        "types": "./dist/index/index.d.ts",
+                        "default": "./dist/index/dev.js"
                     }
                 },
                 "import": {
-                    "types": "./dist/index.d.ts",
-                    "default": "./dist/index.js"
+                    "types": "./dist/index/index.d.ts",
+                    "default": "./dist/index/index.js"
                 }
             },
             "deno": {
                 "import": {
-                    "types": "./dist/index.d.ts",
-                    "default": "./dist/server.js"
+                    "types": "./dist/index/index.d.ts",
+                    "default": "./dist/index/server.js"
                 }
             },
             "node": {
                 "import": {
-                    "types": "./dist/index.d.ts",
-                    "default": "./dist/server.js"
+                    "types": "./dist/index/index.d.ts",
+                    "default": "./dist/index/server.js"
                 }
             },
             "solid": {
-                "development": "./dist/dev.jsx",
-                "import": "./dist/index.jsx"
+                "development": "./dist/index/dev.jsx",
+                "import": "./dist/index/index.jsx"
             },
             "development": {
                 "import": {
-                    "types": "./dist/index.d.ts",
-                    "default": "./dist/dev.js"
+                    "types": "./dist/index/index.d.ts",
+                    "default": "./dist/index/dev.js"
                 }
             },
             "import": {
-                "types": "./dist/index.d.ts",
-                "default": "./dist/index.js"
+                "types": "./dist/index/index.d.ts",
+                "default": "./dist/index/index.js"
+            }
+        },
+        "./math": {
+            "worker": {
+                "import": {
+                    "types": "./dist/math/index.d.ts",
+                    "default": "./dist/math/server.js"
+                }
+            },
+            "browser": {
+                "import": {
+                    "types": "./dist/math/index.d.ts",
+                    "default": "./dist/math/index.js"
+                }
+            },
+            "deno": {
+                "import": {
+                    "types": "./dist/math/index.d.ts",
+                    "default": "./dist/math/server.js"
+                }
+            },
+            "node": {
+                "import": {
+                    "types": "./dist/math/index.d.ts",
+                    "default": "./dist/math/server.js"
+                }
+            },
+            "import": {
+                "types": "./dist/math/index.d.ts",
+                "default": "./dist/math/index.js"
             }
         },
         "./styles.css": "./dist/index.css"
     },
-    "typesVersions": {},
+    "typesVersions": {
+        "*": {
+            "math": [
+                "./dist/math/index.d.ts"
+            ]
+        }
+    },
     "scripts": {
         "dev": "vite serve dev",
         "build": "tsup",
@@ -131,9 +168,11 @@
         "mermaid": "^11.14.0",
         "rehype": "^13.0.2",
         "rehype-harden": "^1.1.8",
+        "rehype-katex": "^7.0.1",
         "rehype-raw": "^7.0.0",
         "rehype-sanitize": "^6.0.0",
         "remark-gfm": "^4.0.1",
+        "remark-math": "^6.0.0",
         "remark-parse": "^11.0.0",
         "remark-rehype": "^11.1.2",
         "shiki": "^4.0.2",

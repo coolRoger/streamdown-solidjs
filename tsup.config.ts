@@ -12,6 +12,11 @@ const preset_options: preset.PresetOptions = {
             dev_entry: true,
             server_entry: true,
         },
+        {
+            entry: "src/math.ts",
+            dev_entry: false,
+            server_entry: true,
+        },
     ],
     // Set to `true` to remove all `console.*` calls and `debugger` statements in prod builds
     drop_console: true,
@@ -60,7 +65,7 @@ export default defineConfig((config) => {
             }
         }
         if (exportsField && typeof exportsField === "object") {
-            const exportObj = exportsField as Record<string, unknown>;
+            const exportObj = exportsField as any;
             const needsSubpathWrapper =
                 !("." in exportObj) &&
                 ("import" in exportObj ||
@@ -68,7 +73,7 @@ export default defineConfig((config) => {
                     "solid" in exportObj ||
                     "node" in exportObj);
 
-            package_fields.exports = needsSubpathWrapper
+            package_fields.exports = (needsSubpathWrapper
                 ? {
                       ".": exportObj,
                       "./styles.css": "./dist/index.css",
@@ -76,7 +81,7 @@ export default defineConfig((config) => {
                 : {
                       ...exportObj,
                       "./styles.css": "./dist/index.css",
-                  };
+                  }) as any;
         }
 
         console.log(

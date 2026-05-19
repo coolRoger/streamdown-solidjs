@@ -69,7 +69,9 @@ export const ImageComponent = (props: ImageComponentProps) => {
         typeof localProps.onLoad === "function" && localProps.onLoad?.(event);
     };
 
-    const handleError: JSX.EventHandler<HTMLImageElement, Event> = (event) => {
+    const handleError: JSX.EventHandler<HTMLImageElement, ErrorEvent> = (
+        event,
+    ) => {
         setImageLoaded(false);
         setImageError(true);
         typeof localProps.onError === "function" && localProps.onError?.(event);
