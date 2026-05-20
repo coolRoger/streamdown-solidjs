@@ -121,7 +121,7 @@
     },
     "scripts": {
         "dev": "vite serve dev",
-        "build": "tsup",
+        "build": "tsup && node ./scripts/postbuild.mjs",
         "smoke:pack": "node ./scripts/smoke-packed.mjs",
         "smoke:pack:serve": "node ./scripts/smoke-packed.mjs --serve",
         "test": "concurrently pnpm:test:*",

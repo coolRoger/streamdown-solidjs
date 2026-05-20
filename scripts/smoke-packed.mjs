@@ -92,10 +92,14 @@ export default defineConfig({
     const mainTsx = `import { render } from "solid-js/web";
 import { StreamdownSolid } from "streamdown-solidjs";
 import "streamdown-solidjs/styles.css";
+import { createMathPlugin } from "streamdown-solidjs/math";
+import "streamdown-solidjs/math.css";
+
+const math = createMathPlugin({ singleDollarTextMath: true });
 
 const App = () => (
-    <StreamdownSolid isAnimating animated>
-        {"# Smoke Test\\n\\n- should render packed artifact"}
+    <StreamdownSolid isAnimating animated plugins={{ math }}>
+        {"# Smoke Test\\n\\nInline: $x^2$\\n\\nBlock:\\n\\n$$\\\\int_0^1 x^2\\\\,dx = \\\\frac{1}{3}$$"}
     </StreamdownSolid>
 );
 
